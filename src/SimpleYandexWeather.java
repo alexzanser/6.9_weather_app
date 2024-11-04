@@ -22,14 +22,14 @@ public class SimpleYandexWeather {
 
         if (response.statusCode() == 200) {
             String responseBody = response.body();
-            System.out.println("Џолный ответ от API:");
+            System.out.println("РџРѕР»РЅС‹Р№ РѕС‚РІРµС‚ РѕС‚ API:");
             System.out.println(responseBody);
             int tempIndex = responseBody.indexOf("\"temp\":");
             if (tempIndex != -1) {
                 String tempSubstring = responseBody.substring(tempIndex + 7);
                 int commaIndex = tempSubstring.indexOf(",");
                 String tempValue = tempSubstring.substring(0, commaIndex);
-                System.out.println("’екущаЯ температура: " + tempValue + "ЎC");
+                System.out.println("РўРµРєСѓС‰Р°СЏ С‚РµРјРїРµСЂР°С‚СѓСЂР°: " + tempValue + "В°C");
             }
 
             int countDays = 0;
@@ -45,10 +45,10 @@ public class SimpleYandexWeather {
 
             if (countDays > 0) {
                 double averageTemp = totalTemp / (double)countDays;
-                System.out.println("‘реднЯЯ температура за " + countDays + " дней: " + averageTemp + "ЎC");
+                System.out.println("РЎСЂРµРґРЅСЏСЏ С‚РµРјРїРµСЂР°С‚СѓСЂР° Р·Р° " + countDays + " РґРЅРµР№: " + averageTemp + "В°C");
             }
         } else {
-            System.out.println("Ћшибка: код ответа " + response.statusCode());
+            System.out.println("РћС€РёР±РєР°: РєРѕРґ РѕС‚РІРµС‚Р° " + response.statusCode());
         }
 
     }
